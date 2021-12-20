@@ -4,4 +4,3 @@ if a%4==0 and a%400==0:
 else:
 	print("not a leap year")
 	
-
