@@ -3,7 +3,7 @@ l=len(n)
 k=list()
 s=[]
 for j in range(0,l):
-    k.append(n[j])
+    k.append(n[j]) 
 for i in range(1,l):
     if(k[0]==k[i]):
         k[i]="$"
