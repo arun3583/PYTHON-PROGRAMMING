@@ -1,0 +1,217 @@
+udp        0      0 0.0.0.0:35643           0.0.0.0:*                           2741/firefox    
+udp        0      0 0.0.0.0:35711           0.0.0.0:*                           2741/firefox    
+udp        0      0 0.0.0.0:52218           0.0.0.0:*                           2741/firefox    
+udp        0      0 0.0.0.0:52265           0.0.0.0:*                           2741/firefox    
+udp        0      0 0.0.0.0:60808           0.0.0.0:*                           2741/firefox    
+udp        0      0 0.0.0.0:44434           0.0.0.0:*                           1036/dnsmasq    
+udp        0      0 0.0.0.0:53249           0.0.0.0:*                           2741/firefox    
+udp        0      0 0.0.0.0:45227           0.0.0.0:*                           2741/firefox    
+udp        0      0 0.0.0.0:37141           0.0.0.0:*                           2741/firefox    
+udp        0      0 0.0.0.0:45387           0.0.0.0:*                           2741/firefox    
+udp6       0      0 :::5353                 :::*                                810/avahi-daemon: r
+udp6       0      0 :::46931                :::*                                810/avahi-daemon: r
+exam1@mca-pc68:~$ ssh -vvv -p 22 address
+OpenSSH_7.2p2 Ubuntu-4ubuntu2.10, OpenSSL 1.0.2g  1 Mar 2016
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: Applying options for *
+debug2: resolving "address" port 22
+ssh: Could not resolve hostname address: Name or service not known
+exam1@mca-pc68:~$ ssh exam1@mca-pc68 192.168.7.69
+The authenticity of host 'mca-pc68 (127.0.1.1)' can't be established.
+ECDSA key fingerprint is SHA256:cvBE0wOHWtYcHJhTT9PyTGGvMNllU21irHQgzqEC1m4.
+Are you sure you want to continue connecting (yes/no)? n
+Please type 'yes' or 'no': no
+Host key verification failed.
+exam1@mca-pc68:~$ ssh exam1@mca-pc68 192.168.7.69
+The authenticity of host 'mca-pc68 (127.0.1.1)' can't be established.
+ECDSA key fingerprint is SHA256:cvBE0wOHWtYcHJhTT9PyTGGvMNllU21irHQgzqEC1m4.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'mca-pc68' (ECDSA) to the list of known hosts.
+exam1@mca-pc68's password: 
+bash: 192.168.7.69: command not found
+exam1@mca-pc68:~$ sudo ssh exam1@mca-pc68 192.168.7.69
+The authenticity of host 'mca-pc68 (127.0.1.1)' can't be established.
+ECDSA key fingerprint is SHA256:cvBE0wOHWtYcHJhTT9PyTGGvMNllU21irHQgzqEC1m4.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'mca-pc68' (ECDSA) to the list of known hosts.
+exam1@mca-pc68's password: 
+bash: 192.168.7.69: command not found
+exam1@mca-pc68:~$ sudo ssh 192.168.7.69
+The authenticity of host '192.168.7.69 (192.168.7.69)' can't be established.
+ECDSA key fingerprint is SHA256:VVSBCYgRFkUcp1rN1US0SO7E9cu/1JlPA6gzGHewacE.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.7.69' (ECDSA) to the list of known hosts.
+root@192.168.7.69's password: 
+Permission denied, please try again.
+root@192.168.7.69's password: 
+Permission denied, please try again.
+root@192.168.7.69's password: 
+Permission denied (publickey,password).
+exam1@mca-pc68:~$ clear
+
+exam1@mca-pc68:~$ sudo ssh 192.168.7.69 
+root@192.168.7.69's password: 
+Permission denied, please try again.
+root@192.168.7.69's password: 
+
+[1]+  Stopped                 sudo ssh 192.168.7.69
+exam1@mca-pc68:~$ sudo nano /etc/ssh/sshd_config
+exam1@mca-pc68:~$ sudo ssh 192.168.7.69 
+root@192.168.7.69's password: 
+Permission denied, please try again.
+root@192.168.7.69's password: 
+
+exam1@mca-pc68:~$ sudo ssh 192.168.7.69 
+root@192.168.7.69's password: 
+Permission denied, please try again.
+root@192.168.7.69's password: 
+
+[2]+  Stopped                 sudo ssh 192.168.7.69
+exam1@mca-pc68:~$ sudo ssh 192.168.7.670 
+ssh: Could not resolve hostname 192.168.7.670: Name or service not known
+exam1@mca-pc68:~$ ssh 192.168.7.670 
+ssh: Could not resolve hostname 192.168.7.670: Name or service not known
+exam1@mca-pc68:~$ hostname -I
+192.168.7.68 
+exam1@mca-pc68:~$ ssh 192.168.7.70 
+ssh: connect to host 192.168.7.70 port 22: Connection refused
+exam1@mca-pc68:~$ sudo ssh 192.168.7.70 
+ssh: connect to host 192.168.7.70 port 22: Connection refused
+exam1@mca-pc68:~$ ssh 192.168.7.70 
+ssh: connect to host 192.168.7.70 port 22: Connection refused
+exam1@mca-pc68:~$ ssh 192.168.7.69 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:VVSBCYgRFkUcp1rN1US0SO7E9cu/1JlPA6gzGHewacE.
+Please contact your system administrator.
+Add correct host key in /home/exam1/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /home/exam1/.ssh/known_hosts:1
+  remove with:
+  ssh-keygen -f "/home/exam1/.ssh/known_hosts" -R 192.168.7.69
+ECDSA host key for 192.168.7.69 has changed and you have requested strict checking.
+Host key verification failed.
+exam1@mca-pc68:~$ ssh 192.168.7.21
+ssh: connect to host 192.168.7.21 port 22: Connection refused
+exam1@mca-pc68:~$ ssh 192.168.7.69
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:9tzpQ80h2xFfwxyJucPvqNn8ZbE3ITNQz2kqE4iQQA0.
+Please contact your system administrator.
+Add correct host key in /home/exam1/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /home/exam1/.ssh/known_hosts:1
+  remove with:
+  ssh-keygen -f "/home/exam1/.ssh/known_hosts" -R 192.168.7.69
+ECDSA host key for 192.168.7.69 has changed and you have requested strict checking.
+Host key verification failed.
+exam1@mca-pc68:~$ ssh-keygen -R 192.168.7.68
+Host 192.168.7.68 not found in /home/exam1/.ssh/known_hosts
+exam1@mca-pc68:~$ ls -a
+.              .cache   Documents         .ICEauthority  Music          .profile        s.sh                       username.java     .xsession-errors.old
+..             .compiz  Downloads         .local         .nano          Public          .sudo_as_admin_successful  Videos
+.bash_history  .config  examples.desktop  main.class     password.save  .sample.sh.swp  Templates                  .viminfo
+.bash_logout   Desktop  .gconf            main.java      .password.swp  smaple.sh       time.sh                    .Xauthority
+.bashrc        .dmrc    .gnupg            .mozilla       Pictures       .ssh            .time.sh.swp               .xsession-errors
+exam1@mca-pc68:~$ ls .ssh
+known_hosts
+exam1@mca-pc68:~$ rm .ssh
+rm: cannot remove '.ssh': Is a directory
+exam1@mca-pc68:~$ sudo rm .ssh
+rm: cannot remove '.ssh': Is a directory
+exam1@mca-pc68:~$ rmdir .ssh
+rmdir: failed to remove '.ssh': Directory not empty
+exam1@mca-pc68:~$ sudo rmdir .ssh
+rmdir: failed to remove '.ssh': Directory not empty
+exam1@mca-pc68:~$ rmdir -r .ssh
+rmdir: invalid option -- 'r'
+Try 'rmdir --help' for more information.
+exam1@mca-pc68:~$ rm -d .ssh rmdir .ssh
+rm: cannot remove '.ssh': Directory not empty
+rm: cannot remove 'rmdir': No such file or directory
+rm: cannot remove '.ssh': Directory not empty
+exam1@mca-pc68:~$ rmdir -r .ssh
+rmdir: invalid option -- 'r'
+Try 'rmdir --help' for more information.
+exam1@mca-pc68:~$ rm -r .ssh
+exam1@mca-pc68:~$ sudo apt-get purge openssh-server
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  ncurses-term openssh-sftp-server ssh-import-id
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  openssh-server*
+0 upgraded, 0 newly installed, 1 to remove and 188 not upgraded.
+After this operation, 904 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 218396 files and directories currently installed.)
+Removing openssh-server (1:7.2p2-4ubuntu2.10) ...
+Purging configuration files for openssh-server (1:7.2p2-4ubuntu2.10) ...
+Processing triggers for man-db (2.7.5-1) ...
+exam1@mca-pc68:~$ sudo apt-get insatall openssh-server
+E: Invalid operation insatall
+exam1@mca-pc68:~$ sudo apt-get install openssh-server
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Suggested packages:
+  ssh-askpass rssh molly-guard monkeysphere
+The following NEW packages will be installed:
+  openssh-server
+0 upgraded, 1 newly installed, 0 to remove and 188 not upgraded.
+Need to get 0 B/335 kB of archives.
+After this operation, 904 kB of additional disk space will be used.
+Preconfiguring packages ...
+Selecting previously unselected package openssh-server.
+(Reading database ... 218378 files and directories currently installed.)
+Preparing to unpack .../openssh-server_1%3a7.2p2-4ubuntu2.10_amd64.deb ...
+Unpacking openssh-server (1:7.2p2-4ubuntu2.10) ...
+Processing triggers for systemd (229-4ubuntu21.27) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for ufw (0.35-0ubuntu2) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up openssh-server (1:7.2p2-4ubuntu2.10) ...
+Creating SSH2 RSA key; this may take some time ...
+2048 SHA256:i6jjWd3cbChX1UYe+wn6EZNZQ80tLF4DtkOg1eE9BhM root@mca-pc68 (RSA)
+Creating SSH2 DSA key; this may take some time ...
+1024 SHA256:qmawgg8iy+dr43LFOx6gbSln0/AcJnvdvNftz9kXcVo root@mca-pc68 (DSA)
+Creating SSH2 ECDSA key; this may take some time ...
+256 SHA256:uTy7s7FlGE3TQCCYpYUDcMlaCGQOk5e2eCcIvi7jbyE root@mca-pc68 (ECDSA)
+Creating SSH2 ED25519 key; this may take some time ...
+256 SHA256:aFEJaNnVvkWphXTZTPrnSa8rzXgs3SVwqtUQzU1LeJU root@mca-pc68 (ED25519)
+Processing triggers for systemd (229-4ubuntu21.27) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for ufw (0.35-0ubuntu2) ...
+exam1@mca-pc68:~$ ssh 192.168.7.69
+The authenticity of host '192.168.7.69 (192.168.7.69)' can't be established.
+ECDSA key fingerprint is SHA256:9tzpQ80h2xFfwxyJucPvqNn8ZbE3ITNQz2kqE4iQQA0.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.7.69' (ECDSA) to the list of known hosts.
+exam1@192.168.7.69's password: 
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-142-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+0 updates can be applied immediately.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Last login: Mon Jun  6 14:40:00 2022 from 192.168.7.75
+exam1@mca-pc59:~$ sudo poweroff
+[sudo] password for exam1: 
+Connection to 192.168.7.69 closed by remote host.
+Connection to 192.168.7.69 closed.
+exam1@mca-pc68:~$ 
